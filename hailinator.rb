@@ -8,5 +8,5 @@ end
 Twitter.home_timeline
 
 Twitter.search("hail", :result_type => "recent").results.map do |tweet|
-   puts tweet
+   puts "#{tweet.from_user}: #{tweet.text}"
 end
