@@ -6,3 +6,7 @@ Twitter.configure do |config|
   config.oauth_token_secret = "g5Shii7XmuEUl46OTry0Obrma2LX2gwEs10SeehGao"
 end
 Twitter.home_timeline
+
+Twitter.search("hail", :result_type => "recent").results.map do |tweet|
+   puts tweet
+end
