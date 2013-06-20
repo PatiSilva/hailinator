@@ -14,10 +14,10 @@ require "CSV"
 CSV.open("tweet.csv", "wb") do |csv| 
 
   csv << ["handle", "text", "url"]
-  
+
   Twitter.search("hail", :result_type => "recent").results.each do |tweet|
-   puts "#{tweet.from_user}: #{tweet.text}: #{tweet.url}"
+   puts "#{tweet.from_user}: #{tweet.full_text}: #{tweet.source}"
    puts tweet.inspect
    end
-  csv << []
+  csv << [tweet.from_user, tweet.full_text, tweet.source]
 end
